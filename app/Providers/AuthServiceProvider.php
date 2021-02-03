@@ -28,5 +28,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isAdmin', function ($user) {
             return $user->type == 'admin';
         });
+
+        Gate::define('isTailor', function ($user) {
+            foreach ($user->roles as $value) {
+                if ($value->name == 'tailor') return true;
+            }
+        });
     }
 }

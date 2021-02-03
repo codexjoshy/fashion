@@ -18,6 +18,9 @@ class CreateTailorsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('company_name')->nullable();
             $table->longText('description')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->integer('account_number')->nullable();
+            $table->string('account_name')->nullable();
             $table->timestamps();
         });
     }

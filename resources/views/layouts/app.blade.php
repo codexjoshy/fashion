@@ -15,7 +15,7 @@
     <link rel="stylesheet"
         href="{{ asset('backend/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css') }}">
     @stack('css')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
 
     {{--
     <link rel="stylesheet" href="{{ asset('backend/assets/vendor/vector-map/jqvmap.css') }}">
@@ -63,55 +63,55 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header ">
-                            <h2 class="pageheader-title">@yield('pageheader', '')</h2>
+                            {{-- <h2 class="pageheader-title">@yield('pageheader', '')</h2> --}}
                             <div class="col-12 divider mb-3" style="background-color:#e0e4ef"></div>
                             <div class="d-flex align-items-center justify-content-between">
-                                @if(\Request::route()->getPrefix() != '/admin' && !\Request::is('dashboard') )
+                                {{-- @if(\Request::route()->getPrefix() != '/admin' && !\Request::is('dashboard') ) --}}
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="walletBalance">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">Ledger Balance:
-                                            &#8358;{{ number_format(calculateLedgerBalance(auth()->user()->id), 2) }}
+                                            {{-- &#8358;{{ number_format(calculateLedgerBalance(auth()->user()->id), 2) }} --}}
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="walletBalance">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">Wallet Balance:
-                                            &#8358;{{ number_format(calculateAvailableBalance(auth()->user()->id), 2) }}
+                                            {{-- &#8358;{{ number_format(calculateAvailableBalance(auth()->user()->id), 2) }} --}}
                                         </h5>
                                     </div>
                                 </div>
-                                @endcannot
-                                @if(\Request::route()->getPrefix() != '/admin' && \Request::is('earnings') )
+                                {{-- @endcannot --}}
+                                {{-- @if(\Request::route()->getPrefix() != '/admin' && \Request::is('earnings') ) --}}
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="walletBalance">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">Binary:
-                                            &#8358;{{ number_format($binary, 2) }}
+                                            {{-- &#8358;{{ number_format($binary, 2) }} --}}
                                         </h5>
-                                    </div>
+                                 /   </div>
                                 </div>
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="pv">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">PV:
-                                            {{ $pv }}
+                                            {{-- {{ $pv }} --}}
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="indirect">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">Indirect:
-                                            &#8358;{{ number_format($indirect, 2) }}
+                                            {{-- &#8358;{{ number_format($indirect, 2) }} --}}
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="card mb-2 ml-auto" style="width: fit-content;" id="direct">
                                     <div class="card-body">
                                         <h5 class="text-success mb-0">Direct:
-                                            &#8358;{{ number_format($direct, 2) }}
+                                            {{-- &#8358;{{ number_format($direct, 2) }} --}}
                                         </h5>
                                     </div>
                                 </div>
-                                @endcannot
+                                {{-- @endcannot --}}
 
 
                             </div>

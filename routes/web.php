@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TailorController;
+use App\Http\Controllers\UserController;
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
@@ -72,9 +75,24 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::middleware('auth', 'verified')->group(function () {
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
+        Route::get('profile', [UserController::class, 'createProfile'])->name('profile');
+        Route::get('category', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('category/create', [CategoryController::class, 'create'])->name('category.create');
+        Route::get('category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('category', [CategoryController::class, 'store'])->name('category.store');
+        Route::put('category/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+        Route::get('user/{type}', [userController::class, 'getUsers'])->name('user.index');
+        Route::get('user/create', [userController::class, 'create'])->name('user.create');
+        Route::post('user/', [userController::class, 'store'])->name('user.store');
     });
     Route::name('user.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard');
+        Route::get('profile', [UserController::class, 'createProfile'])->name('profile');
+        Route::put('profile', [UserController::class, 'updateProfile'])->name('profile.update');
+        Route::post('bank', [TailorController::class, 'UpdateBank'])->name('banks.store');
+        Route::put('tailor-profile', [TailorController::class, 'store'])->name('tailor.profile');
+        Route::get('dashboard/tailor', [DashboardController::class, 'tailor'])->name('tailor.dashboard');
     });
 });
 

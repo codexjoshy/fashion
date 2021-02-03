@@ -21,7 +21,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'type'
+        'type',
+        'city',
+        'state',
+        'address',
     ];
 
     /**
@@ -47,4 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Role::class);
     }
+    public function tailors()
+    {
+        return $this->hasOne(Tailor::class);
+    }
+    // public function scopeUserRole($query, $roleId)
+    // {
+    //     return $query->where([])
+    // }
 }

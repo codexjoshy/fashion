@@ -14,6 +14,13 @@ class DashboardController extends Controller
     public function admin()
     {
         $user = auth()->user();
+
         return view('admin.dashboard', compact('user'));
+    }
+    public function tailor()
+    {
+        $user = auth()->user();
+
+        return view('user.tailor-dashboard', compact('user'));
     }
 }

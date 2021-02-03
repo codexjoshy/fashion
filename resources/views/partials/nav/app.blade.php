@@ -30,10 +30,21 @@
                     @endif
                 </li>
                 @endcan
+                @can('isTailor')
+                <li class="nav-item">
+                    <a class="nav-link nav-icons" href="{{ route('user.tailor.dashboard') }}" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="indicator"></span>
+                        Go To Tailor Panel
+                    </a>
+                </li>
+
+                @endcan
                 <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('uploads/avatars/default.jpg') }}" class="user-avatar-md rounded-circle">
+                        <img src="{{ Storage::url(auth()->user()->avatar) ?? asset('storage/avatars/default.png') }}"
+                            class="user-avatar-md rounded-circle">
                         {{-- <img src="assets/images/avatar-1.jpg" alt=""
                             class="user-avatar-md rounded-circle"></a> --}}
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
@@ -42,7 +53,7 @@
                                 <h5 class="mb-0 text-white nav-user-name">{{ auth()->user()->name }}</h5>
                                 {{-- <span class="status"></span><span class="ml-2">Available</span> --}}
                             </div>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('user.profile') }}">
                                 <i class="fas fa-user mr-2"></i>Account
                             </a>
                             <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Pin</a>

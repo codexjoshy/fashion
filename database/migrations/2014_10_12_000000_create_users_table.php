@@ -17,11 +17,16 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('name');
+            $table->string('phone')->nullable();
             $table->enum('type', ['user', 'admin']);
             $table->integer('active')->default(1);
             $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->default('nigeria');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('avatar')->default('avatars/default.png');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
