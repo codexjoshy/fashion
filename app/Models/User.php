@@ -54,6 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Tailor::class);
     }
+
     // public function scopeUserRole($query, $roleId)
     // {
     //     return $query->where([])

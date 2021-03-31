@@ -3,10 +3,7 @@
         aria-expanded="false"><i class="mdi mdi-home"></i>Dashboard</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('dashboard') }}" aria-expanded="false"><i class="mdi mdi-cart"></i>Orders</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link {{ Request::is('profile') ? 'active': '' }}" href="{{ route('user.profile') }}"
+    <a class="nav-link {{ Request::is('profile') ? 'active': '' }}" href="{{ route('dashboard') }}"
         aria-expanded="false"><i class="mdi mdi-account"></i>Profile</a>
 </li>
 <li class="nav-item">

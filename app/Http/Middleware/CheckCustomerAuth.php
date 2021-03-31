@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckAdminAuth
+class CheckCustomerAuth
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,11 @@ class CheckAdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->type == 'admin') {
-
-            return $next($request);
+        if (auth()->user()->roles) {
+            $roles = auth()->user()->roles;
+            foreach ($roles as $value) {
+                if ($value->name == 'customer') return $next($request);
+            }
         }
         return redirect()->route('dashboard');
     }

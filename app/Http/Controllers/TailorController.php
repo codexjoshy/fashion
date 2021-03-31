@@ -37,10 +37,11 @@ class TailorController extends Controller
     public function store(CreateTailorRequest $request)
     {
         $user = auth()->user();
-        Tailor::updateOrCreate(["user_id" => $user->id], [
+        $tailor = Tailor::updateOrCreate(["user_id" => $user->id], [
             "company_name" => $request->company_name,
-            "description" => $request->description
+            "description" => $request->description,
         ]);
+        $tailor->categories()->attach($request->category);
         return back()->with('success', 'Tailors Profile Details Updated Successfully');
     }
 

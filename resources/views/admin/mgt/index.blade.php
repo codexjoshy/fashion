@@ -34,7 +34,7 @@
                                 <td>{{$user->address}}</td>
                                 <td>{{$user->state}}</td>
                                 <td>{{$user->city}}</td>
-                                <td> {{ $category->created_at->format('d M, Y H:i A') }}</td>
+                                {{-- <td> {{ $category->created_at->format('d M, Y H:i A') }}</td> --}}
                                 <td>
                                     {{-- <form action="{{ route('admin.packages.destroy', $package->id) }}"
                                     method="post" class="d-inline mr-2">
@@ -43,8 +43,8 @@
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form> --}}
                                     @can('isAdmin')
-                                    <a href="{{ route('admin.category.edit', $category->id) }}"
-                                        class="btn btn-sm btn-warning ">Edit</a>
+                                    {{-- <a href="{{ route('admin.category.edit', $category->id) }}" --}}
+                                    {{-- class="btn btn-sm btn-warning ">Edit</a> --}}
                                     @endcan
                                 </td>
                             </tr>

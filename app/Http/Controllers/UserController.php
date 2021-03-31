@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserCreationRequest;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Category;
+use App\Models\Tailor;
 
 class UserController extends Controller
 {
@@ -26,12 +28,11 @@ class UserController extends Controller
     public function getUsers($type)
     {
 
-        $users = User::whereHas('roles', function ($q, $type) {
+        $users = User::whereHas('roles', function ($q) use ($type) {
             $q->where('name', $type);
         })->get();
-        dd($users);
         // $customer = Role::where('name', 'customer')->first()->user()->get();
-
+        return view('admin.mgt.index', compact('users'));
     }
 
     /**
@@ -41,7 +42,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.mgt.create');
+        $category = Category::all();
+        return view('admin.mgt.create', compact('category'));
     }
 
     /**
@@ -65,6 +67,12 @@ class UserController extends Controller
         ]);
         $roleId = Role::where('name', strtolower($request->type))->value('id');
         $user->roles()->attach($roleId);
+        if ($request->type == 'tailor') {
+            $tailor = new Tailor();
+            $tailor->user_id = $user->id;
+            $tailor->save();
+            $tailor->categories()->attach($request->category);
+        }
         //initiate an event
         return back()->with('success', 'User Created successfully');
     }
@@ -116,10 +124,12 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $tailor = $user->tailors ?? false;
+
+        $category = Category::all();
         if (Gate::allows('isAdmin')) {
-            return View('admin.profile.show', compact('user', 'tailor'));
+            return View('admin.profile.show', compact('user', 'tailor', 'category'));
         }
-        return View('user.profile.show', compact('user', 'tailor'));
+        return View('user.profile.show', compact('user', 'tailor', 'category'));
     }
     public function updateProfile(ProfileUpdateRequest $request)
     {

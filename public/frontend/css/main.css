@@ -5,7 +5,7 @@
  is the file you need to edit to change the look of the
  theme.
  However we used Less script to make things easy to maintain, this is the compressed ourput, we recommend to edit the less files and then recombile the files and add the result here, if you don't like to use less you can edit this file here.
- 
+
  This files contents are outlined below.
  01.	Theme Reset Style
  02.	Global Elements
@@ -146,7 +146,7 @@ input:focus,
 	box-shadow:none !important;
 }
 /*======================
-		 Select 		
+		 Select
 ======================*/
 .tg-select{
 	width: 100%;
@@ -185,7 +185,7 @@ input:focus,
 }
 .tg-select select option{color:#ddd;}
 /*======================
-		CheckBox		
+		CheckBox
 ======================*/
 .tg-radio,
 .tg-radio label,
@@ -304,13 +304,15 @@ p ins { color: #999; }
 dl dd { margin-left: 20px; }
 address { font-style: italic; }
 /*==============================================
-			Global Elements						
+			Global Elements
 ==============================================*/
 .tg-haslayout{
 	width:100%;
 	float:left;
 }
-.tg-sectionspace{padding: 80px 0;}
+.tg-sectionspace {
+    padding: 80px 0;
+}
 .tg-locationmap{
 	width: 100%;
 	float: left;
@@ -547,8 +549,9 @@ li.tg-rss a:hover{background:#ff6600;}
 	padding-right: 0;
 	padding-left: 0;
 }
+
 /*==============================================
-			Theme Pagination					
+			Theme Pagination
 ==============================================*/
 .tg-pagination{
 	width:100%;
@@ -601,7 +604,7 @@ li.tg-rss a:hover{background:#ff6600;}
 .tg-pagination ul li.tg-nextpage a:hover i,
 .tg-pagination ul li.tg-prevpage a:hover i{color: #fff;}
 /*==============================================
-			Theme BreadCrumb					
+			Theme BreadCrumb
 ==============================================*/
 .tg-breadcrumb {
 	padding: 0;
@@ -654,7 +657,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	color:#fff;
 }
 /*==============================================
-			Theme Style							
+			Theme Style
 ==============================================*/
 .tg-wrapper{overflow: hidden;}
 .tg-header{
@@ -698,7 +701,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-open .tg-dropdowarrow i:before {content: '\e91a';}
 /*==============================================
-			Header								
+			Header
 ==============================================*/
 .tg-topbar{
 	width: 100%;
@@ -914,7 +917,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	border-left: 7px solid transparent !important;
 }
 /*==============================================
-			Inner Banner Style					
+			Inner Banner Style
 ==============================================*/
 .tg-innerpagebanner{
 	width: 100%;
@@ -934,7 +937,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-pagehead .tg-description p{margin: 0;}
 /*==============================================
-			Product Grid						
+			Product Grid
 ==============================================*/
 .tg-products{
 	width: 100%;
@@ -1034,7 +1037,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	visibility: visible;
 }
 /*==============================================
-			Sidebar Style						
+			Sidebar Style
 ==============================================*/
 .tg-widget{
 	width: 100%;
@@ -1161,7 +1164,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	padding: 10px 20px 0;
 }
 /*==============================================
-				Refine Search Form				
+				Refine Search Form
 ==============================================*/
 .tg-formrefinesearch h3{
 	margin: 0;
@@ -1241,7 +1244,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-formrefinesearch fieldset .tg-btn:first-child{float: left;}
 /*==============================================
-				Footer Style					
+				Footer Style
 ==============================================*/
 .tg-footer{border-top: 2px solid;}
 .tg-footerinfo{
@@ -1426,7 +1429,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-column .tg-widgettitle h3:before{display:none;}
 /*==============================================
-				Index Style					
+				Index Style
 ==============================================*/
 .tg-homebanner{
 	width: 100%;
@@ -1990,7 +1993,7 @@ li.tg-rss a:hover{background:#ff6600;}
 .flipster__nav li a:after{display: none;}
 .flipster__nav li.flipster__nav__item--current a{width: 24px;}
 /*==============================================
-				Shop Detail						
+				Shop Detail
 ==============================================*/
 .tg-productbox{
 	width: 100%;
@@ -2190,7 +2193,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	line-height: 18px;
 }
 /*==============================================
-				About Us Style					
+				About Us Style
 ==============================================*/
 .tg-paddingzero{padding: 0;}
 .tg-teammembers{
@@ -2275,7 +2278,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	margin: 0 auto;
 }
 /*==============================================
-			How It Work Style					
+			How It Work Style
 ==============================================*/
 .tg-worksteps{
 	width: 100%;
@@ -2346,7 +2349,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-stepcontent .tg-description p{margin: 0;}
 /*==============================================
-			Contact Us Style					
+			Contact Us Style
 ==============================================*/
 .form-group{
 	width: 100%;
@@ -2359,10 +2362,10 @@ li.tg-rss a:hover{background:#ff6600;}
 	height: 127px;
 }
 /*==============================================================================================
-			Home Version Two																	
+			Home Version Two
 ==============================================================================================*/
 /*==============================================
-			Home Banner Slider					
+			Home Banner Slider
 ==============================================*/
 .tg-homeslider{
 	color: #fff;
@@ -2803,12 +2806,12 @@ li.tg-rss a:hover{background:#ff6600;}
 	color: #767676;
 }
 /*==============================================
-			Article News Grid					
+			Article News Grid
 ==============================================*/
 .tg-articlenewsgrid{}
 .tg-articlenewsgrid .tg-news{margin: 15px 0;}
 /*==============================================
-			Article News Sidebar				
+			Article News Sidebar
 ==============================================*/
 .tg-themeformsearch .form-control{padding: 9px 40px 9px 20px;}
 .tg-themeformsearch button{
@@ -2897,7 +2900,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	border-radius: 50%;
 }
 /*==============================================
-			Article News List					
+			Article News List
 ==============================================*/
 .tg-articlenewslist{}
 .tg-articlenewslist .tg-news{margin: 15px 0;}
@@ -2914,7 +2917,7 @@ li.tg-rss a:hover{background:#ff6600;}
 }
 .tg-articlenewslist .tg-themetag{border: 1px solid #ddd;}
 /*==============================================
-			Article News Detail					
+			Article News Detail
 ==============================================*/
 .tg-articlenewsdetail{
 	width: 100%;
@@ -3194,7 +3197,7 @@ li.tg-rss a:hover{background:#ff6600;}
 	float: right;
 }
 /*==============================================
-			Coming Soon Style					
+			Coming Soon Style
 ==============================================*/
 body.tg-comingsoonpage{
 	background: url(../images/bgcomingsoon.jpg) center center fixed;
@@ -3280,3 +3283,8 @@ body.tg-comingsoonpage{
 	line-height: 20px;
 }
 body.tg-comingsoonpage .tg-footer{border: 0;}
+
+.tg-calltoaction h3{
+    color:rgba(255, 255, 255, 0.90);
+    font-weight: bold;
+}

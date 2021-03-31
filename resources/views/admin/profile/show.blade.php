@@ -133,13 +133,13 @@
 @can('isTailor')
 <div class="row">
     <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-        <form method="post" action="{{ route('user.tailor.profile') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('tailor.profile') }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="card">
                 <div class="icon-box-sm card-header" style="display: flex; align-items: center;">
                     <i class="fas fa-user fa-fw fa-sm text-primary mr-3"></i>
-                    <h5 class=" mb-0">Company Details</h5>
+                    <h5 class=" mb-0">Tailor Details</h5>
                 </div>
 
                 <div class="card-body">
@@ -176,9 +176,21 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="country" class="col-form-label">Country</label>
-                                <input id="country" type="text" value="{{ $user->country }}"
-                                    class="form-control form-control-lg" name="country" readonly>
+                                <label for="category" class="col-form-label">Category</label>
+                                <select name="category" id="category" class="form-control">
+                                    <option value=''>---- Choose category ----</option>
+                                    @forelse ($category as $item)
+
+                                    <option {{ '' }} value="{{ $item ->id }}">{{ $item->name }}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+
+                                @error('category')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-12">

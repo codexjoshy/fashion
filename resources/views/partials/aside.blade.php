@@ -9,47 +9,40 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-divider text-center">
-                        @can('isAdmin')
                         @if (\Request::route()->getPrefix() == '/admin')
                         <h3 style="color: #fff">Aministrator Panel</h3>
+                        @elseif(\Request::route()->getPrefix() == '/tailor')
+                        <h3 style="color: #fff">Tailors Panel</h3>
+                        @elseif(\Request::route()->getPrefix() == '/customer')
+                        <h3 style="color: #fff">Customer Panel</h3>
                         @else
-                        @if (\Request::route()->getPrefix() == '/dashboard/tailor')
-                        <h3 style="color: #fff">Tailor Panel</h3>
-                        @else
-                        <h3 style="color: #fff">Member Panel</h3>
-                        @endif
-                        @endif
-                        @else
-                        @if (\Request::route()->getPrefix() == '/tailor')
-                        <h3 style="color: #fff">Tailor Panel</h3>
-                        @endif
-                        <h3 style="color: #fff">Member Panel</h3>
+                        @can('isAdmin')
+                        <h3 style="color: #fff">Aministrator Panel</h3>
+                        @elsecan('isTailor')
+                        <h3 style="color: #fff">Tailors Panel</h3>
+                        @elsecan('isCustomer')
+                        <h3 style="color: #fff">Customer Panel</h3>
                         @endcan
+                        @endif
                     </li>
-                    {{-- <li class="nav-divider text-center">
-                        <div class="user">
-                            <div class="photo">
-                                <img src="{{ asset('uploads/avatars/default.jpg') }}" class="photo__image">
+
+                    @if (\Request::route()->getPrefix() == '/admin')
+                    @include('partials.side-menu.admin')
+                    @elseif (\Request::route()->getPrefix() == '/tailor')
+                    @include('partials.side-menu.tailor')
+                    @elseif(\Request::route()->getPrefix() == '/customer')
+                    @include('partials.side-menu.user')
+                    @else
+                    @can('isAdmin')
+                    @include('partials.side-menu.admin')
+                    @elsecan('isTailor')
+                    @include('partials.side-menu.tailor')
+                    @elsecan('isCustomer')
+                    @include('partials.side-menu.user')
+                    @endcan
+                    @endif
+                </ul>
             </div>
+        </nav>
     </div>
-    <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-0"
-        aria-controls="submenu-0"><i class="fa fa-fw fa-user"></i>Taofee
-        Adewuyi </a>
-    <div id="submenu-0" class="collapse submenu" style="">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Edit Profile</a>
-            </li>
-        </ul>
-    </div>
-    </li> --}}
-    @if (\Request::route()->getPrefix() == '/admin')
-    @include('partials.side-menu.admin')
-    @else
-    @include('partials.side-menu.user')
-    @endif
-    </ul>
-</div>
-</nav>
-</div>
 </div>

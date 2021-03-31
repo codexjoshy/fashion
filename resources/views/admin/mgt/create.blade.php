@@ -121,6 +121,24 @@
                 @enderror
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="category" class="col-form-label">Category</label>
+                <select name="category" id="category" class="form-control">
+                    <option value="">---- Choose category ----</option>
+                    @forelse ($category as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @empty
+                    @endforelse
+                </select>
+
+                @error('category')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="current_password" class="col-form-label">Current password</label>

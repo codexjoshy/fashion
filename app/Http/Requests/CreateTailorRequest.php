@@ -34,6 +34,7 @@ class CreateTailorRequest extends FormRequest
         return [
             'company_name' => 'required|string',
             'description' => 'required|string',
+            "category" => 'required|numeric|exists:categories,id',
             'tailor_current_password' => 'required|password'
         ];
     }

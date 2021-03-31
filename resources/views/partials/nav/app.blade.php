@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="{{ route('user.dashboard') }}">{{ config('app.name') }}</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">{{ config('app.name') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,31 +14,52 @@
                         to Site</a>
                 </li>
                 @can('isAdmin')
+                @if (\Request::route()->getPrefix() == '/customer' || \Request::route()->getPrefix() == '/tailor' )
                 <li class="nav-item">
-                    @if ((\Request::route()->getPrefix()) == '/admin')
-                    <a class="nav-link nav-icons" href="{{ route('user.dashboard') }}" aria-haspopup="true"
-                        aria-expanded="false">
-                        <span class="indicator"></span>
-                        Go To User Panel
-                    </a>
-                    @else
                     <a class="nav-link nav-icons" href="{{ route('admin.dashboard') }}" aria-haspopup="true"
                         aria-expanded="false">
                         <span class="indicator"></span>
                         Go To Admin Panel
                     </a>
-                    @endif
                 </li>
+                @endif
                 @endcan
+
                 @can('isTailor')
+                @can('isCustomer')
+                @if (\Request::route()->getPrefix() == '/admin')
                 <li class="nav-item">
-                    <a class="nav-link nav-icons" href="{{ route('user.tailor.dashboard') }}" aria-haspopup="true"
+                    <a class="nav-link nav-icons" href="{{ route('tailor.dashboard') }}" aria-haspopup="true"
                         aria-expanded="false">
                         <span class="indicator"></span>
                         Go To Tailor Panel
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link nav-icons" href="{{ route('user.dashboard') }}" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="indicator"></span>
+                        Go To Customer Panel
+                    </a>
+                </li>
+                @elseif (\Request::route()->getPrefix() == '/customer')
+                <li class="nav-item">
+                    <a class="nav-link nav-icons" href="{{ route('tailor.dashboard') }}" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="indicator"></span>
+                        Go To Tailor Panel
+                    </a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link nav-icons" href="{{ route('user.dashboard') }}" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span class="indicator"></span>
+                        Go To Customer Panel
+                    </a>
+                </li>
+                @endif
+                @endcan
                 @endcan
                 <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"

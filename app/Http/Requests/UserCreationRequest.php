@@ -36,6 +36,7 @@ class UserCreationRequest extends FormRequest
                 'required',
                 Rule::in(['customer', 'tailor'])
             ],
+            "category" => 'required|numeric|exists:categories,id',
             'current_password' => 'required|string|password',
         ];
     }

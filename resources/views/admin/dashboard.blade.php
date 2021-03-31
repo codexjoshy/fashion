@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-inline-block">
-                    <h6 class="text-muted">Wallet Balance (&#8358;)</h6>
+                    <h6 class="text-muted"> (&#8358;)</h6>
                     <h2 class="mb-0">{{ 0}}</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">

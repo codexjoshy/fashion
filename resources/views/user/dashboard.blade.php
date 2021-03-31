@@ -89,7 +89,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-inline-block">
-                    <h6 class="text-muted">Downlines</h6>
+                    <h6 class="text-muted">Downlineswww</h6>
                     <h2 class="mb-0">{{ 0 }}</h2>
                 </div>
                 <div class="float-right icon-circle-medium  icon-box-lg  bg-success-light mt-1">
@@ -117,7 +117,7 @@
 <div class="row">
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
         <div class="card">
-            <h5 class="card-header">Wallet Transactions</h5>
+            <h5 class="card-header">Walletsss Transactions</h5>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered first">

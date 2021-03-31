@@ -82,18 +82,24 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::post('category', [CategoryController::class, 'store'])->name('category.store');
         Route::put('category/{category}', [CategoryController::class, 'update'])->name('category.update');
 
-        Route::get('user/{type}', [userController::class, 'getUsers'])->name('user.index');
-        Route::get('user/create', [userController::class, 'create'])->name('user.create');
-        Route::post('user/', [userController::class, 'store'])->name('user.store');
+        Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+        Route::get('user/{type}', [UserController::class, 'getUsers'])->name('user.index');
+        Route::post('user', [UserController::class, 'store'])->name('user.store');
     });
-    Route::name('user.')->group(function () {
+    Route::middleware('tailor')->prefix('tailor')->name('tailor.')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard');
+        Route::get('profile', [DashboardController::class, 'user'])->name('profile');
+        Route::put('tailor-profile', [TailorController::class, 'store'])->name('update.profile');
+    });
+    Route::middleware('customer')->prefix('customer')->name('user.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard');
         Route::get('profile', [UserController::class, 'createProfile'])->name('profile');
         Route::put('profile', [UserController::class, 'updateProfile'])->name('profile.update');
         Route::post('bank', [TailorController::class, 'UpdateBank'])->name('banks.store');
-        Route::put('tailor-profile', [TailorController::class, 'store'])->name('tailor.profile');
-        Route::get('dashboard/tailor', [DashboardController::class, 'tailor'])->name('tailor.dashboard');
+        // Route::get('dashboard/tailor', [DashboardController::class, 'tailor'])->name('tailor.dashboard');
     });
+
+    Route::get('dashboard', [DashboardController::class, 'app'])->name('dashboard');
 });
 
 
@@ -101,3 +107,5 @@ Route::middleware('auth', 'verified')->group(function () {
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('how-it-works', [FrontendController::class, 'steps'])->name('frontend.steps');
+Route::get('products', [FrontendController::class, 'products'])->name('frontend.product.index');
+Route::get('products/{product}', [FrontendController::class, 'productList'])->name('frontend.product.show');
