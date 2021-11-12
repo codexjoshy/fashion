@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TailorController;
 use App\Http\Controllers\UserController;
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
@@ -85,6 +87,12 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('user/create', [UserController::class, 'create'])->name('user.create');
         Route::get('user/{type}', [UserController::class, 'getUsers'])->name('user.index');
         Route::post('user', [UserController::class, 'store'])->name('user.store');
+
+        Route::get('gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+        Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.index');
+        Route::get('gallery/{gallery}', [GalleryController::class, 'edit'])->name('gallery.edit');
+        Route::post('gallery', [GalleryController::class, 'store'])->name('gallery.store');
+        Route::put('gallery/{gallery}', [GalleryController::class, 'update'])->name('gallery.update');
     });
     Route::middleware('tailor')->prefix('tailor')->name('tailor.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'user'])->name('dashboard');
@@ -108,4 +116,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('contact', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('how-it-works', [FrontendController::class, 'steps'])->name('frontend.steps');
 Route::get('products', [FrontendController::class, 'products'])->name('frontend.product.index');
-Route::get('products/{product}', [FrontendController::class, 'productList'])->name('frontend.product.show');
+Route::get('products/{category}/{product}', [FrontendController::class, 'productShow'])->name('frontend.product.show');
+Route::get('products/{category}', [FrontendController::class, 'productCategoryList'])->name('frontend.product.category');
+
+Route::post('order', [OrderController::class, 'store'])->name('order.store');

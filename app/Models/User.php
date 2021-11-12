@@ -55,6 +55,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Tailor::class);
     }
 
+    /**
+     * Get the customer associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function customer()
+    {
+        return $this->hasOne(User::class);
+    }
+
     // public function scopeUserRole($query, $roleId)
     // {
     //     return $query->where([])

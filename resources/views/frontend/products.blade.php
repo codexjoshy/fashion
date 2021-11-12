@@ -34,25 +34,21 @@
                         <div id="tg-content" class="tg-content">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="tg-pagehead">
-                                    <h2>Suit Collections</h2>
+                                    <h2>{{ $category->name }} Collections</h2>
                                     <div class="tg-description">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt utnalo
-                                            labore dolore magna aliqua minim veniaam quis nostrud exercitation
-                                            ullamco laboris nisi ut aliquip commodo consequat auis autetatio
-                                            irure dolor in reprderit voluptate velit esse cillum dolore eu
-                                            fugiat nulla pariatur sint occaecat cupidatat non proident.</p>
+                                        <p>{{ $category->description }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="tg-products tg-productgrid">
+                                @forelse ($galleries as $item)
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
                                     <div class="tg-product">
                                         <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-01.jpg') }}"
-                                                alt="image description">
+                                            <img src="{{ Storage::url($item->image) }}" alt="image description">
                                             <figcaption>
                                                 <div class="tg-hoverimglink">
-                                                    <img src="images/products/img-10.png" alt="image description">
+                                                    <img src="{{ Storage::url($item->image) }}" alt="image description">
                                                     <a href="shopdetail.html">
                                                         <span>View Detail</span>
                                                         <i class="fa fa-angle-right"></i>
@@ -62,158 +58,24 @@
                                         </figure>
                                         <div class="tg-productcontent">
                                             <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
+                                                <h3><a href="shopdetail.html">{{ $item->name }}</a></h3>
                                             </div>
                                             <div class="tg-rating">
                                                 <span class="tg-stars"><span></span></span>
                                             </div>
                                             <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
+                                                <h4><a href="javascript:void(0);">&#8358;
+                                                        {{ number_format($item->price,2 )}}</a></h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @empty
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-02.jpg') }}"
-                                                alt="image description">
-                                            <figcaption>
-                                                <div class="tg-hoverimglink">
-                                                    <img src="images/products/img-10.png" alt="image description">
-                                                    <a href="shopdetail.html">
-                                                        <span>View Detail</span>
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
-                                            </div>
-                                            <div class="tg-rating">
-                                                <span class="tg-stars"><span></span></span>
-                                            </div>
-                                            <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h3>Product Coming Soon</h3>
                                 </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-03.jpg') }}"
-                                                alt="image description">
-                                            <figcaption>
-                                                <div class="tg-hoverimglink">
-                                                    <img src="images/products/img-10.png" alt="image description">
-                                                    <a href="shopdetail.html">
-                                                        <span>View Detail</span>
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
-                                            </div>
-                                            <div class="tg-rating">
-                                                <span class="tg-stars"><span></span></span>
-                                            </div>
-                                            <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-04.jpg') }}"
-                                                alt="image description">
-                                            <figcaption>
-                                                <div class="tg-hoverimglink">
-                                                    <img src="images/products/img-10.png" alt="image description">
-                                                    <a href="shopdetail.html">
-                                                        <span>View Detail</span>
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
-                                            </div>
-                                            <div class="tg-rating">
-                                                <span class="tg-stars"><span></span></span>
-                                            </div>
-                                            <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-05.jpg') }}"
-                                                alt="image description">
-                                            <figcaption>
-                                                <div class="tg-hoverimglink">
-                                                    <img src="{{ asset('frontend/images/products/img-10.png') }}"
-                                                        alt="image description">
-                                                    <a href="shopdetail.html">
-                                                        <span>View Detail</span>
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
-                                            </div>
-                                            <div class="tg-rating">
-                                                <span class="tg-stars"><span></span></span>
-                                            </div>
-                                            <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="{{ asset('frontend/images/products/img-06.jpg') }}"
-                                                alt="image description">
-                                            <figcaption>
-                                                <div class="tg-hoverimglink">
-                                                    <img src="images/products/img-10.png" alt="image description">
-                                                    <a href="shopdetail.html">
-                                                        <span>View Detail</span>
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <div class="tg-producttitle">
-                                                <h3><a href="shopdetail.html">Fabric Title Here</a></h3>
-                                            </div>
-                                            <div class="tg-rating">
-                                                <span class="tg-stars"><span></span></span>
-                                            </div>
-                                            <div class="tg-price">
-                                                <h4><a href="javascript:void(0);">$330</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforelse
+
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <nav class="tg-pagination">

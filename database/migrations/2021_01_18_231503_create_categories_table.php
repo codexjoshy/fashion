@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->longText('description')->nullable();
+            $table->text('slug')->nullable();
+            $table->longText('image');
             $table->integer('parent_id')->nullable();
             $table->enum('status', ['inactive', 'active']);
             $table->timestamps();

@@ -3288,3 +3288,9 @@ body.tg-comingsoonpage .tg-footer{border: 0;}
     color:rgba(255, 255, 255, 0.90);
     font-weight: bold;
 }
+
+.section-bg-img {
+    background-image: url('../images/slider/img-02.jpg');
+    background-color: none;
+    background-position: center;
+}

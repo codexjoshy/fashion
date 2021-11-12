@@ -12,4 +12,13 @@ class Category extends Model
     {
         return $this->hasMany(Tailor::class);
     }
+    /**
+     * Get all of the galleries for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

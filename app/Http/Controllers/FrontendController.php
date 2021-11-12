@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where('status', 'active')->get();
         return view('frontend.index', compact('categories'));
     }
     public function contact()
@@ -20,13 +21,19 @@ class FrontendController extends Controller
     {
         return view('frontend.works');
     }
-    public function products()
+    public function productShow($categorySlug, $gallerySlug)
     {
-
-        return view('frontend.product.index');
+        $gallery = Gallery::where('slug', $gallerySlug)->first();
+        if (!$gallery) abort(404, 'No Category of such');
+        $similarProducts = Gallery::where('category_id', $gallery->category_id)
+            ->where('id', '!=', $gallery->id)->get();
+        return view('frontend.product.show', compact('gallery', 'similarProducts'));
     }
-    public function productList()
+    public function productCategoryList($slug)
     {
-        return view('frontend.product.show');
+        $category = Category::where('slug', $slug)->first();
+        $galleries = $category->galleries()->simplePaginate(12);
+        if (!$category) abort(404, 'No Category of such');
+        return view('frontend.product.index', compact('category', 'galleries'));
     }
 }

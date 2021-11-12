@@ -21,7 +21,8 @@ class UserCreationSeeder extends Seeder
             'name' => "Admin",
             'email' => "superadmin@admin.com",
             'password' => Hash::make('password'),
-            'type' => 'admin'
+            'type' => 'admin',
+            'email_verified_at' => now(),
         ]);
         $roleId = Role::where('name', 'admin')->value('id');
         $user->roles()->attach($roleId);

@@ -38,8 +38,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <strong class="tg-logo"><a href="index-2.html"><img src="{{ asset('frontend/images/logo.png') }}"
-                                alt="company logo here"></a></strong>
+                    <strong class="tg-logo"><a href="{{ route('frontend.index') }}"><img
+                                src="{{ asset('frontend/images/logo.png') }}" alt="company logo here"></a></strong>
                     <div class="tg-navigationarea">
                         <nav id="tg-nav" class="tg-nav">
                             <div class="navbar-header">
@@ -97,9 +97,10 @@
                                 </ul>
                             </div>
                         </nav>
-                        <a class="tg-btn tg-btnstartcustomizing"
+                        <a class="tg-btn tg-btnstartcustomizing" href="{{ route('login') }}" target="_blank">Login</a>
+                        {{-- <a class="tg-btn tg-btnstartcustomizing"
                             href="http://www.codezel.com/tailors-online/customizer/?pid=8"
-                            target="_blank"><span>new</span>Start Customizing</a>
+                            target="_blank"><span>new</span>Start Customizing</a> --}}
                     </div>
                 </div>
             </div>

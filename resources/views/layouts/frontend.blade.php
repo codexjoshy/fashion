@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset("frontend/css/color.css") }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
+    @stack('css')
     <script src="{{ asset("js/vendor/modernizr-2.8.3-respond-1.4.2.min.js") }}"></script>
 </head>
 
@@ -210,6 +211,7 @@
     <script src="{{ asset('frontend/js/appear.js') }}"></script>
     <script src="{{ asset('frontend/js/gmap3.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 
 

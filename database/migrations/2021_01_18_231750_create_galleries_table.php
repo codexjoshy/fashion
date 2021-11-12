@@ -17,9 +17,12 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->longText('image')->nullable();
-            $table->unsignedDecimal('price', 19, 2)->nullable();
+            $table->string('name');
+            $table->longText('image');
+            $table->unsignedDecimal('price', 19, 2);
+            $table->string('description')->nullable();
             $table->enum('is_material', ['no', 'yes'])->nullable();
+            $table->text('slug')->nullable();
             $table->timestamps();
         });
     }

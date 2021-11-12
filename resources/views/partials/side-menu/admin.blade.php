@@ -22,7 +22,7 @@
         </ul>
     </div>
 </li>
-<li class="nav-item">
+<li class="nav-item ">
     <a class="nav-link {{ Request::routeIs('admin.category.*') ? 'active': ''}}" href="#" data-toggle="collapse"
         aria-expanded="false" data-target="#submenu-category" aria-controls="submenu-category"><i
             class="fa fa-fw fa-user-circle"></i>Category</a>
@@ -34,6 +34,22 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.category.index') }}">All Category</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li class="nav-item ">
+    <a class="nav-link {{ Request::routeIs('admin.gallery.*') ? 'active': ''}}" href="#" data-toggle="collapse"
+        aria-expanded="false" data-target="#submenu-gallery" aria-controls="submenu-gallery"><i
+            class="fa fa-fw fa-user-circle"></i>Catallogue</a>
+    <div id="submenu-gallery" class="collapse submenu" style="">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/gallery') ? 'active': '' }}"
+                    href="{{ route('admin.gallery.create') }}">Create Catallogue</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.gallery.index') }}">Catallogue List</a>
             </li>
         </ul>
     </div>

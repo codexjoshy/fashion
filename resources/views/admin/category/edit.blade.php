@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col-12 mt-2 card-action">
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </div>

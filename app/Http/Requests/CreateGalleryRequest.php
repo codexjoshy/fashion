@@ -3,10 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
-class CreateCategoryRequest extends FormRequest
+class CreateGalleryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,23 +25,15 @@ class CreateCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        // dd(request()->method);
-        if (request()->method == 'PUT') {
-            return [
-                "name" => 'required|string|unique:categories,name, ' . $this->category->id,
-                "description" => 'required|string',
-                "status" => [
-                    'required', Rule::in(['active', 'inactive'])
-                ],
-                "image" => "nullable|image|mimes:jpeg,bmp,png,jpg,gif|max:1000"
-            ];
-        }
         return [
             "name" => 'required|string|unique:categories,name',
-            "description" => 'required|string',
+            "description" => 'nullable|string',
+            "price" => 'required|numeric',
+            "category_id" => 'required|integer|exists:categories,id',
             "status" => [
                 'required', Rule::in(['active', 'inactive'])
             ],
+            "is_material" => 'required|string|in:yes,no',
             "image" => "required|image|mimes:jpeg,bmp,png,jpg,gif|max:1000"
         ];
     }
